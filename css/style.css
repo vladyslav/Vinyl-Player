@@ -1,0 +1,332 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vinyl {
+    width: 600px;
+    height: 500px;
+    background-image: url(../assets/img/background.png);
+    background-size: cover;
+    background-position: 20% 50%;
+    border-radius: 5px;
+    box-shadow: 4px 9px 12px rgba(0, 0, 0, 0.9), -4px 4px 10px rgba(0, 0, 0, 0.9);
+    display: flex;
+    position: relative;
+}
+
+.vinyl__disk {
+    width: 67%;
+    height: 80%;
+    background: #000;
+    border-radius: 50%;
+    margin-top: 50px;
+    box-shadow: -5px 3px 7px rgba(0, 0, 0, 0.8);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-left: 40px;
+}
+
+.vinyl__disk::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(circle, darkkhaki, darkkhaki, 1px, transparent 1px, transparent 5px);
+    border-radius: 50%;
+    margin: auto;
+    opacity: .1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.vinyl__logo {
+    width: 140px;
+    height: 140px;
+    background-image: url(../assets/img/vinyl5.jpg);
+    background-repeat: no-repeat;
+    background-size: 140px;
+    border: 9px solid #000;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vinyl__disk::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: conic-gradient(
+            transparent 0deg 10deg,
+            rgba(255,255,255,.2) 40deg 45deg,
+            transparent 75deg 190deg,
+            rgba(255,255,255,.2) 220deg 225deg,
+            transparent 255deg 360deg);
+}
+
+.vinyl__logo::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ababab;
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.9), inset -2px 2px 2px rgb(221, 221, 221);
+}
+
+.play-btn__input {
+    display: none;
+}
+
+.play-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding-left: 5px;
+    padding-left: 5px;
+    bottom: 30px;
+    right: 32px;
+    width: 53px;
+    height: 53px;
+    font-size: 29px;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+    text-shadow: 1px 1px 0 rgba(255,255,255, 0.6);
+    background-color: rgb(230, 230, 230);
+    box-shadow:
+              rgb(38, 38, 38) 0 0px 0px 3px, /* border */
+        inset rgba(179, 179, 179, 0.8) 0 0 3px 1px, /* soft SD */
+        inset rgba(0, 0, 0, 0.5) 0 -1px 2px 2px, /* bottom SD */
+        inset rgba(255, 255, 255, 0.5) 0 1px 1px 4px;/* top HL */
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.3) 8%),
+        -webkit-radial-gradient(50% 50%, 200% 50%,
+        rgb(209, 209, 209) 5%,
+        rgb(182, 181, 181) 30%,
+        rgb(163, 163, 162) 100%);
+}
+
+.play-btn::before,
+.play-btn::after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-image:
+        -webkit-radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%),
+        -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0) 100%),
+        -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0) 100%),
+        -webkit-radial-gradient(100% 50%, 50% 06%, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.play-btn::after {
+    transform: rotate(45deg);
+}
+input[type="checkbox"]:checked~.vinyl__disk .vinyl__logo,
+input[type="checkbox"]:checked~.vinyl__disk::before {
+    animation-name: turn_logo;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+
+}
+
+input[type="checkbox"]:checked~.vinyl__disk .vinyl__logo::before{
+    animation-name: turn_logo;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-direction: reverse;
+
+}
+
+input[type="checkbox"]:checked~.play-btn{
+    color: rgb(235,119,41);
+}
+
+@keyframes turn_logo {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stick {
+    position: absolute;
+    top: 110px;
+    right: 145px;
+    filter: drop-shadow(-2px 2px 3px rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.stick::after {
+    content: '';
+    display: block;
+    width: 3.8em;
+    height: 3.8em;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #8C8C8C;
+    top: -31px;
+    right: -31px;
+}
+
+
+
+.elementC {
+    width: 135px;
+    height: 135px;
+    z-index: 0;
+    position: absolute;
+    right: 77px;
+    top: 43px;
+    background-color: #eee;
+    background-image: repeating-conic-gradient(from 0deg, rgba(212,212,212, 0.2),
+    rgba(12, 12, 12, 0.1),rgba(12, 12, 12, 0.21),rgba(212,212,212, 0.2) 90deg);
+    border-radius: 50%;
+    border: 3px solid #242424;
+    box-shadow: inset 0px -1px 2px 2px rgba(78, 77, 77, 0.9),
+    inset 0px 2px 1px 3px rgba(243, 239, 239, 0.9), 0px 2px 9px 0.2px rgba(0, 0, 0, 0.6);
+}
+
+.elementB {
+    width: 47px;
+    height: 21px;
+    background: linear-gradient(90deg, rgb(117, 117, 117) 0%, rgb(228, 224, 224) 25%, rgb(255, 255, 255) 50%, rgb(228, 223, 223) 75%, rgb(145, 143, 143) 100%);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 34px;
+    left: 0;
+    z-index: 2;
+}
+
+.elementA {
+   
+    transform: rotate(5deg);
+    position: absolute;
+    z-index: 5;
+    right: 114px;
+    top: 79px;
+    border-radius: 50%;
+    width: 3.8em;
+    height: 3.8em;
+    border: 1px solid #8C8C8C;
+    transition: transform 0.5s linear;
+    background-image: -webkit-radial-gradient(50% 0%,10% 60%,rgba(255, 255, 255, 0.8) 0%,rgba(255, 255, 255, 0.1) 100%),
+    -webkit-radial-gradient(50% 100%, 12% 50%, rgba(255, 255, 255, 0.7) 0%, rgba(255,255,255,0.1)100%),
+    -webkit-radial-gradient(0% 50%, 50% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255,255,255,0) 100%),
+    -webkit-radial-gradient(50% 50%, 200% 50%, rgb(230, 230, 230) 10%, rgb(217,217,217)30%, rgb(153, 153, 153) 100%);
+}
+.elementA::before,
+.elementA::after {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: -webkit-radial-gradient(50% 0%,10% 50%,rgba(0, 0, 0, 0.1) 0%,rgba(0, 0, 0, 0) 100%),
+           -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0,0,0,0)100%),
+       -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0,0,0,0)100%),
+        -webkit-radial-gradient(100% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0,0,0,0)100%);
+}
+.elementA:before {
+    transform: rotate(67deg);
+}
+
+.elementA:after {
+    transform: rotate(-67deg);
+}
+
+.element1 {
+    box-sizing: content-box;
+    z-index: 3;
+    transform: rotate(120deg);
+    position: absolute;
+    top: 256px;
+    right: -10px;
+    width: 75px;
+    height: 2px;
+    background-color: #383838;
+    background-image: linear-gradient(black 36%, #FBFBFB 55%);
+    box-shadow: 0px 5px 0px #212121, 0px -5px 0px #212121;
+    border: 8px solid #383838;
+    border-right: none;
+    border-left: none;
+}
+
+.element2{
+    width: 17px;
+    height: 260px;
+    z-index: 2;
+    background: linear-gradient(90deg, rgb(117, 117, 117) 0%, rgb(201, 197, 197) 25%, rgb(255, 255, 255) 50%, rgb(207, 205, 205) 75%, rgb(145, 143, 143) 100%);
+    position: absolute;
+    top: 85px;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.element2:after {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    transform: skew(-25deg);
+    height: 26px;
+    width: 17px;
+    background: linear-gradient(90deg, rgb(117, 117, 117) 0%, rgb(201, 197, 197) 25%, rgb(255, 255, 255) 50%, rgb(207, 205, 205) 75%, rgb(145, 143, 143) 100%);
+    bottom: -25px;
+    right: 6px;
+}
+
+.turn-element {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s linear;
+}
+
+#play-btn:checked ~ .elementA {
+    transform: rotate(12deg);
+}
+
+#play-btn:checked ~ .stick .turn-element {
+    transform: rotate(20deg);
+}
+
+
