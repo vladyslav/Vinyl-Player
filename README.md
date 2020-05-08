@@ -2,7 +2,7 @@
 <a href="https://imgur.com/AifOwl1"><img src="https://i.imgur.com/AifOwl1.gif" title="source: imgur.com" /></a>
 
 **Description:**
-Are you looking for a template, which you can use as a website for your blog? Check Blooger! It's simple, creative and beautiful. It consists of different blocks, which you can change as you wish. Don't overthink just grab it and use:)
+Are you fan of old vinyl players? Then you'll definitely enjoy this. It's simple, creative and beautiful app. Don't overthink just grab it and use:)
 ### [LIVE](https://richboyscrytoo.github.io/Vinyl-Player/)
 **Technologies used:**
  - HTML
