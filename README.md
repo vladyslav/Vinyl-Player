@@ -3,7 +3,7 @@
 
 **Description:**
 Are you fan of old vinyl players? Then you'll definitely enjoy this. It's simple, creative and beautiful app. Don't overthink just grab it and use:)
-### [LIVE](https://vladyslav-vasylenko.github.io/Vinyl-Player/)
+### [LIVE](https://vladyslav.github.io/Vinyl-Player/)
 **Technologies used:**
  - HTML
  - CSS
