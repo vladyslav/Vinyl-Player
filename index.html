@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/ico" href="./assets/img/favicon.ico">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="./assets/img/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Vinyl Player</title>
-</head>
+  </head>
 
-<body>
-<div class="container">
-    <div class="vinyl">
-
-        <input type="checkbox" class="play-btn__input" id="play-btn">
+  <body>
+    <div class="container">
+      <div class="vinyl">
+        <input type="checkbox" class="play-btn__input" id="play-btn" />
         <label onclick="play()" for="play-btn" class="play-btn">▷</label>
         <audio id="audio" loop src="./assets/music.mp3"></audio>
 
         <div class="vinyl__disk">
-            <div class="vinyl__logo">
-            </div>
+          <div class="vinyl__logo"></div>
         </div>
-        <div class="elementC">
-        </div>
-        <div class="elementA">
-        </div>
+        <div class="elementC"></div>
+        <div class="elementA"></div>
         <div class="stick">
-            <div class="turn-element">
-                <div class="element1">
-                </div>
-                <div class="element2">
-                </div>
-                <div class="elementB">
-                </div>
-            </div>
-
+          <div class="turn-element">
+            <div class="element1"></div>
+            <div class="element2"></div>
+            <div class="elementB"></div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="./js/main.js"></script>
-</body>
-
+    <script src="./main.js"></script>
+  </body>
 </html>
